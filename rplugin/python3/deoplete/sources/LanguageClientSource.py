@@ -73,5 +73,6 @@ class Source(Base):
             items = result["items"]
         else:
             items = result
+        sorted(items, key=lambda x: x.get("sortText", ""))
 
         return [convert_to_deoplete_candidate(item) for item in items]
